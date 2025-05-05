@@ -37,6 +37,5 @@ var threeSum = function(nums) {
         }
         
     }
-    console.log(nums)
     return triplets
 };
