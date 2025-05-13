@@ -15,7 +15,6 @@ var productExceptSelf = function(nums) {
         productRight[i] = productRight[i+1] * nums[i+1] 
     }
     
-    console.log(productRight,"Product Right")
     for(let i = 0;i < nums.length;i++){
         ans[i] = productLeft[i] * productRight[i]
     }
