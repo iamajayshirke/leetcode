@@ -12,22 +12,24 @@
 var swapPairs = function(head) {
     
     if(!head || !head.next) return head
-    
-    let sentinel = new ListNode()
-    let prev = sentinel
+
+    // let sentinel = new ListNode()
+    // let prev = sentinel
     let curr = head
     let next = head.next
     
 
     while(curr && next){
-        prev.next = next
-        curr.next = next.next
-        next.next = curr
+        let temp = curr.val
+        curr.val = next.val
+        next.val =temp
+        // prev.next = next
+        // curr.next = next.next
+        // next.next = curr
 
-        prev = curr
-        curr = prev.next
-        next = curr && curr.next
+        // prev = curr
+        curr = curr.next.next
+        next = next.next && next.next.next
     }
-    console.log(sentinel.next)
-    return sentinel.next
+    return head
 };
