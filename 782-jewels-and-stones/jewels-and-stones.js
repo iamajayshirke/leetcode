@@ -4,7 +4,7 @@
  * @return {number}
  */
 var numJewelsInStones = function(jewels, stones) {
-    let n = jewels.length
+    let n = jewels.length - 1
     let count = 0
     let hash = new Map()
     while(n>=0){
