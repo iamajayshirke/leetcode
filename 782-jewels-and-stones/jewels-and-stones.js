@@ -4,18 +4,10 @@
  * @return {number}
  */
 var numJewelsInStones = function(jewels, stones) {
-    let n = jewels.length - 1
-    let count = 0
-    let hash = new Map()
-    while(n>=0){
-        hash.set(jewels[n])
-        n--
+    let jSet = new Set(jewels);
+    let count = 0;
+    for (let c of stones) {
+        if (jSet.has(c)) count++;
     }
-    console.log(hash)
-    for(let j = 0;j<stones.length;j++){
-        if(hash.has(stones[j])){
-                count++
-        }
-    }
-    return count
+    return count;
 };
