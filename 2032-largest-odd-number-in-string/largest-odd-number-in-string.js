@@ -2,22 +2,16 @@
  * @param {string} num
  * @return {string}
  */
-var largestOddNumber = function(num) {
-    let remainingSub = ""
-    let end = num.length-1
+var largestOddNumber = function(s) {
+    let end = s.length-1
     while(end>=0){
-        if(num[end] % 2 == 0){
+        if(s[end] % 2 == 0){
             end--
         }else{
-            break
+            return s.substring(0, end+1)
         }
     }
     if(end < 0){
-        return remainingSub
-    }else{
-        for(let i = 0;i<= end;i++){
-            remainingSub+=num[i]
-        }
-        return remainingSub
+        return ""
     }
 };
