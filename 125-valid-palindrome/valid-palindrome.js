@@ -3,16 +3,17 @@
  * @return {boolean}
  */
 
-const validatePelindrome = (s,first,last) => {
-    if(first >= last) return true
-    if(s[first] == s[last]){
-        return validatePelindrome(s,first+1,last-1)
-    }else{
-        return false
-    }
-}
 
 var isPalindrome = function(s) {
-    let newStr = s.replace(/[~\`!@#\$%\^\&*()\-_=\+\[\]\\{};:'",\.<>\/? ]/g,'').toLowerCase()
-    return validatePelindrome(newStr,0,newStr.length-1)
+     let filStr = ""
+    let revStr = ""
+    let rev = ""
+    s = s.toLowerCase()
+    for (let i = 0;i< s.length;i++){
+        if(s[i].match(/[a-z0-9]/i)){
+            filStr += s[i]
+            rev = s[i] + rev
+        }
+    }
+    return rev == filStr
 };
