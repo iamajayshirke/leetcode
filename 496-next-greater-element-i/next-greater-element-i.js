@@ -3,23 +3,34 @@
  * @param {number[]} nums2
  * @return {number[]}
  */
-var nextGreaterElement = function(nums1, nums2) {
-    let hash = {}
-    for(let i = nums2.length-1;i>=0;i--){
-        if(i == nums2.length-1) hash[nums2[i]] = -1
-        
-        for(let j = i;j<nums2.length;j++){
-            if(nums2[j]>nums2[i]){
-                hash[nums2[i]] = nums2[j]
-                break
-            }else if(j == nums2.length-1){
-                hash[nums2[i]] = -1
-            }
-        }
+var nextGreaterElement = function(find, arr) {
+    const stack = [];
+  const ngeMap = new Map();
+
+  // Iterate through the array from right to left
+  for (let i = arr.length - 1; i >= 0; i--) {
+    // Pop all elements from the stack that are smaller than the current element
+    while (stack.length > 0 && stack[stack.length - 1] <= arr[i]) {
+      stack.pop();
     }
-    let resArr = []
-    for(let k = 0;k<nums1.length;k++){
-            resArr.push(hash[nums1[k]])
+
+    // After the while loop, if the stack is empty, there is no NGE
+    // otherwise, the top of the stack is the NGE
+    if (stack.length === 0) {
+      ngeMap.set(arr[i], -1);
+    } else {
+      ngeMap.set(arr[i], stack[stack.length - 1]);
     }
-    return resArr
+
+    // Push the current element onto the stack
+    stack.push(arr[i]);
+  }
+
+  const result = [];
+  // Look up the NGE for each number in the 'find' array
+  for (let num of find) {
+    result.push(ngeMap.get(num));
+  }
+
+  return result;
 };
