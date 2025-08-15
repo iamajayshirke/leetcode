@@ -7,9 +7,7 @@ var nextGreaterElement = function(find, arr) {
 let hash = {}
     let stack = []
     for(let i=arr.length-1;i>=0;i--){
-        if(arr.length-1 == i){
-            hash[arr[i]] = -1
-        }else if(arr[i] < stack[stack.length-1]){
+        if(arr[i] < stack[stack.length-1]){
             hash[arr[i]] = stack[stack.length-1]
         }else{
             while(stack.length){
@@ -19,8 +17,10 @@ let hash = {}
                     hash[arr[i]] = stack[stack.length-1]
                     break
                 }
-                hash[arr[i]] = -1
             }
+            if(stack.length == 0){
+            hash[arr[i]] = -1
+        }
         }
             stack.push(arr[i])
         
