@@ -20,14 +20,10 @@ let hash = {}
                     break
                 }
                 hash[arr[i]] = -1
-                // break
             }
         }
-        // if(arr[i] < stack[stack.length-1] || arr.length-1 == i){
             stack.push(arr[i])
-        // }
         
-        // console.log(stack, hash,stack[stack.length-1])
     }
     return find.map((e)=> hash[e])
 };
