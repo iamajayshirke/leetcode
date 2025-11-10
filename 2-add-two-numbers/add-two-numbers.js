@@ -10,22 +10,30 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function(l1, l2) {
+var addTwoNumbers = function (l1, l2) {
     let carry = 0
-    let sumList = new ListNode()
-    let startNode = sumList
-    while(l1 || l2 || carry){
-        let sum = (!l1 ? 0 : l1.val) + (!l2 ? 0 : l2.val) + carry
-        let digit = sum % 10
-        carry = Math.floor(sum / 10)
-
-        let newNode = new ListNode(digit)
-        sumList.next = newNode
-
-        sumList = sumList.next
-        l1 = l1 && l1.next
-        l2 = l2 && l2.next
+    let ansList = new ListNode(0)
+    let ansListStart = ansList
+    while (l1 !== null || l2 !== null || carry !== 0 ) {
+        
+        const val1 = l1 ? l1.val : 0;
+        const val2 = l2 ? l2.val : 0;
+        let ans = val1 + val2 + carry
+        
+        
+            // Calculate the sum and new carry
+        const sum = val1 + val2 + carry;
+        carry = Math.floor(sum / 10); // The new carry is the quotient (e.g., 19/10 = 1)
+        const digit = sum % 10;
+        ansListStart.next = new ListNode(digit)
+        
+        ansListStart = ansListStart.next
+        if (l1) {
+            l1 = l1.next;
+        }
+        if (l2) {
+            l2 = l2.next;
+        }
     }
-    console.log(startNode)
-    return startNode.next
+    return ansList.next
 };
