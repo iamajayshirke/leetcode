@@ -1,8 +1,8 @@
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
+ * this.val = (val === undefined ? 0 : val)
+ * this.next = (next === undefined ? null : next)
  * }
  */
 /**
@@ -10,28 +10,29 @@
  * @param {number} k
  * @return {ListNode}
  */
-var rotateRight = function(head, k) {
-    if(!head || !head.next) return head
-    // find size
-    let size = 0
-    let curr = head
-    let s = head
-    let f = head
-    while(curr){
-        curr = curr.next
-        size+=1
+
+    var rotateRight = function(head, k) {
+    if (!head || !head.next || k === 0) return head;
+    
+    let length = 1;
+    let tail = head;
+    while (tail.next) {
+        tail = tail.next;
+        length++;
     }
-    // find k if < size
-    k = k % size 
-    for(let i = 0;i<k;i++){
-        f = f.next
+
+    k = k % length;
+    if (k === 0) return head;
+
+    let stepsToNewHead = length - k;
+    let prev = null;
+    let curr = head;
+    while (stepsToNewHead--) {
+        prev = curr;
+        curr = curr.next;
     }
-    while(f.next){
-        f = f.next
-        s = s.next
-    }
-    f.next = head
-    let newNode = s.next
-    s.next = null
-    return newNode
+
+    prev.next = null;
+    tail.next = head;
+    return curr;
 };
