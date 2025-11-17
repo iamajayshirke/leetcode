@@ -34,5 +34,5 @@
 
     prev.next = null;
     tail.next = head;
-    return curr; 
+    return curr;
 };
