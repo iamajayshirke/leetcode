@@ -14,7 +14,7 @@
     var rotateRight = function(head, k) {
     if (!head || !head.next || k === 0) return head;
     
-    let length = 1;
+    let length = 1; 
     let tail = head;
     while (tail.next) {
         tail = tail.next;
