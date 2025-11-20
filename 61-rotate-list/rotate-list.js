@@ -17,7 +17,7 @@
     let length = 1; 
     let tail = head;
     while (tail.next) {
-        tail = tail.next;
+        tail = tail.next;  
         length++;
     }
 
