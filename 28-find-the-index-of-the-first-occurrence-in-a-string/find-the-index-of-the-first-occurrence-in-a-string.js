@@ -7,15 +7,13 @@ var strStr = function(h, n) {
      let wndw = n.length
     let ptr = 0
     while(ptr < h.length){
-        let count = 0
-        for(let j = 0;j<wndw;j++){
-            if(h[ptr+j] == n[j]){
-                count++
-            }else{
+        let j = 0
+        for(j = 0;j<wndw;j++){
+            if(h[ptr+j] !== n[j]){
                 break
             }
         }
-        if(count == wndw){
+        if(j == wndw){
             return ptr
         }
         ptr++
