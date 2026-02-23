@@ -3,20 +3,20 @@
  * @param {string} needle
  * @return {number}
  */
-var strStr = function(h, n) {
-     let wndw = n.length
-    let ptr = 0
-    while(ptr < h.length){
-        let j = 0
-        for(j = 0;j<wndw;j++){
-            if(h[ptr+j] !== n[j]){
-                break
+var strStr = function(haystack, needle) {
+    let n = haystack.length;
+    let m = needle.length;
+
+    for(let i = 0; i <= n - m; i++){
+        let j = 0;
+        for(j = 0; j < m; j++){
+            if(haystack[i + j] !== needle[j]){
+                break;
             }
         }
-        if(j == wndw){
-            return ptr
+        if(j === m){
+            return i;
         }
-        ptr++
     }
-    return -1
+return -1;
 };
