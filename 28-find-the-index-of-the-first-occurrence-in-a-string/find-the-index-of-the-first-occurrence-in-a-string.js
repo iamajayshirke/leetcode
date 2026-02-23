@@ -15,7 +15,6 @@ var strStr = function(h, n) {
                 break
             }
         }
-        console.log(count,h[ptr])
         if(count == wndw){
             return ptr
         }
