@@ -5,28 +5,24 @@
  * @param {number} n
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
-var merge = function(nums1, m, nums2, n) {
-    let i = m-1
-    let j = n-1
-    let k = nums1.length-1
-    while(i >= 0 && j>= 0){
-        if(nums1[i] <= nums2[j]){
-            nums1[k] = nums2[j]
-            j--
-        }else{
-            nums1[k] = nums1[i]
-            i--
+var merge = function(arr1, m, arr2, n) {
+    let i = m - 1; 
+    let j = n - 1; 
+    
+    // Pointer for the last empty slot in arr1
+    let k = m + n - 1; 
+
+    // Loop until we have merged all elements from arr2
+    while (j >= 0) {
+        // If arr1 has elements left AND the current arr1 element is larger
+        if (i >= 0 && arr1[i] > arr2[j]) {
+            arr1[k] = arr1[i]; // Place arr1's element at the end
+            i--;               // Move arr1's pointer back
+        } else {
+            arr1[k] = arr2[j]; // Place arr2's element at the end
+            j--;               // Move arr2's pointer back
         }
-        k--
+        k--; // Move the insertion pointer back
     }
-    while(i >= 0 ){
-        nums1[k] = nums1[i]
-        i--
-        k--
-    }
-    while(j >= 0 ){
-        nums1[k] = nums2[j]
-        j--
-        k--
-    }
+    return arr1
 };
