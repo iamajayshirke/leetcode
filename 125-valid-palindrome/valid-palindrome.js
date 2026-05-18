@@ -2,30 +2,17 @@
  * @param {string} s
  * @return {boolean}
  */
-
-
 var isPalindrome = function(s) {
+    let first = 0
+    s = s.toLowerCase().replace(/[^a-z0-9]/g,"");
+    let last = s.length-1
     
-     s = s.toLowerCase()
-    let start = 0
-    let end = s.length - 1
-    
-    while(start<=end){
-       
-        if(!s[start].match(/[a-z0-9]/i)){
-            start++
-            continue
-        } 
-        if(!s[end].match(/[a-z0-9]/i)){
-            end-- 
-            continue
-        } 
-        if(s[start] == s[end]){
-            start++
-            end--
-        }else{
+    while(first <= last){
+        if(s[first] !== s[last]){
             return false
         }
+        first+=1
+        last-=1
     }
     return true
 };
