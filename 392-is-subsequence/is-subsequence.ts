@@ -1,11 +1,17 @@
 function isSubsequence(s: string, t: string): boolean {
-    let sPointer = 0
-    let tPointer = 0
-    while(sPointer < s.length && tPointer < t.length){ //0
-        if(s[sPointer] === t[tPointer]){ //x == c
-            sPointer+=1                     //h
+    let fir = 0;
+
+    if (s === t) return true
+
+    for (let i = 0; i < t.length; i++) {
+        if (t[i] === s[fir]) {
+            fir++;
         }
-        tPointer+=1                         //c
+
+        if (fir >= s.length) {
+            return true;
+        }
     }
-    return sPointer === s.length;
+
+    return false;
 };
