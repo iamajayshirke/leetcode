@@ -1,6 +1,6 @@
 function isHappy(n: number): boolean {
       let temp = getDigit(n)
-    for(let i = 0;i<50;i++){
+    for(let i = 0;i<30;i++){
         if(temp == 1){
             return true
         }else{
