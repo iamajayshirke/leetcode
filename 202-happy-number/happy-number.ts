@@ -1,10 +1,10 @@
 function isHappy(n: number): boolean {
-      let temp = getDigit(n)
-    for(let i = 0;i<30;i++){
-        if(temp == 1){
-            return true
-        }else{
-            temp = getDigit(temp)
+      var visit = new Set();
+    while (!visit.has(n)) {
+        visit.add(n);
+        n = getDigit(n);
+        if (n === 1) {
+            return true;
         }
     }
     return false
