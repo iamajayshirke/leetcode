@@ -6,7 +6,7 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function(arr1, m, arr2, n) {
-    let i = m - 1; 
+     let i = m - 1; 
     let j = n - 1; 
     
     // Pointer for the last empty slot in arr1
